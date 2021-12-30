@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JQuery - Toggle Effect</title>
+    <link href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <style>
+        body {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Windsor_Castle_%2839968064392%29.jpg/2560px-Windsor_Castle_%2839968064392%29.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .content {
+            width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 150px;
+        }
+
+        .toggler {
+            width: 500px;
+            height: 200px;
+            position: relative;
+        }
+
+        #button {
+            padding: 0.5em 1em;
+            text-decoration: none;
+        }
+
+        #effect {
+            width: 240px;
+            height: 170px;
+            padding: 0.4em;
+            position: relative;
+            background: #fff;
+        }
+
+        #effect h3 {
+            margin: 0;
+            padding: 0.4em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="toggler">
+            <div id="effect" class="ui-widget-content ui-corner-all ">
+                <h3 class="ui-widget-header ui-corner-all">Animate</h3>
+                <p>
+                    Windsor Castle is a royal residence at Windsor in the English county of Berkshire.
+                    It is strongly associated with the English and succeeding British royal family, and embodies almost a millennium of architectural history.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <button id="button" class="ui-state-default ui-corner-all center">Toggle Effect</button>
+
+    <script>
+        $(function () {
+            var state = true;
+            $("#button").on("click", function () {
+                if (state) {
+                    $("#effect").animate({
+                        backgroundColor: "#aa0000",
+                        marginLeft: -80,
+                        color: "#fff",
+                        width: 400,
+                    }, 1000);
+                } else {
+                    $("#effect").animate({
+                        backgroundColor: "#fff",
+                        marginLeft: 0,
+                        color: "#000",
+                        width: 240,
+                    }, 1000);
+                }
+                state = !state;
+            });
+        });
+    </script>
+</body>
+
+</html>
